@@ -1,0 +1,40 @@
+//Define a function
+fn main() {
+    println!("Hello world");
+}
+
+//Variables in Rust
+fn main() {
+    let x: i32 = 5; //Initialized the variable x
+    let _y: i32; //Uninitialized the variable y -> Warning message appears
+    assert_eq!(x, 5); //Macro to check whether to values are equal each other or not, if not equal return error
+    println!("Success!");
+}
+
+//Mutable a variable
+fn main(){
+    let mut x: i32 = 1; //Define x as mutable means x value can be changes (add, minus, multiple..)
+    x += 2;
+    assert_eq!(x, 3);
+    println!("Success")
+}
+
+//Scope of variables: the value of variable must be defined within the {}
+fn main() {
+    let x: i32 = 10;
+    let y: i32 = 5;
+    {
+        println!("The value of x in {} and the value of y is {}", x,y);
+    }
+    println!("The value of x in {} and the value of y is {}", x,y);
+}
+
+//A function must be trigger by main function
+fn main() {
+    define_x();
+}
+fn define_x() {
+    let x:&str = "hello";
+    println!("{} world", x);
+}
+
