@@ -38,3 +38,78 @@ fn define_x() {
     println!("{} world", x);
 }
 
+//Shadowing: declare a new variable with the same name as the previous one (different from mutable where we can modify the variable)
+fn main() {
+    let x:i32 = 5;
+    {
+        let x = 12;
+        assert_eq!(x, 12);
+    }
+    assert_eq!(x, 5);
+    let x = 42;
+    println!("{}", x);
+}
+
+//Define a mutable variable and modify it
+ fn main() {
+     let mut x: i32 = 7;
+     x += 3;
+     
+     let _y: i32 = 4;
+     let y: &str = "I can also be bound to text!";
+     println!("Success!");
+     println!("{},{}", x, y);
+ }
+
+//Method to ignore unused variable 1: use underscore _
+fn main() {
+    let _x: i32 = 1;
+}
+
+//Method to ignore unused variables 2: add command
+#[allow(unused_variables)]
+fn main() {
+    let x: i32 = 1;
+}
+
+
+//Destructuring: define a variable within a tuple to be mutable
+fn main() {
+    let (mut x, y) = (1, 2);
+    x += 2;
+    
+    assert_eq!(x, 3);
+    assert_eq!(y, 2);
+    println!("Success!");
+}
+
+//Destructuring and handle unused variables  
+fn main() {
+    let (x, y);
+    (x,..) = (3, 4);
+    [..,y] = [1, 2];
+    assert_eq!([x,y], [3,2]);
+    println!("Success!");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
