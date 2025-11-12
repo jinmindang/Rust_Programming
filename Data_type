@@ -1,1 +1,64 @@
+//Compound data types
+fn main() {
+    //Array
+    let numbers: [i32; 5] = [1,2,3,4,5];
+    println!("Number Array: {:?}", numbers); //{:?} convert into Debug mode
+    
+    let fruits: [&str; 3] = ["Apple", "Banana", "Orange"];
+    println!("Fruits Array: {:?}", fruits);
+    println!("Fruit Array 1st element: {:?}", fruits[0]);
+
+    //Tuples
+    let human: (String, i32, bool) = ("Alice".to_string(), 30, false);
+    println!("Human tuple: {:?}", human);
+    
+    //Slices
+    let number_slices: &[i32] = &[1,2,3,4,5];
+    println!("Number slice: {:?}", number_slices);
+    
+    let animal_slices: &[&str] = &["Lion", "Elephant"];
+    println!("Aniamal slice: {:?}", animal_slices);
+    
+    let book_slices: &[&String] = &[&"IT".to_string(),
+    &"Harry Potter".to_string(),
+    &"ZEN".to_string()];
+    println!("Book slice: {:?}", book_slices);
+
+    //String and String sliced
+    let mut stone_cold: String = String::from("Hell, "); //Define a mutable string (memory stored in heap)
+    stone_cold.push_str("Yeah!"); //Add another string to the original one
+    println!("Stone Cold says: {}", stone_cold);
+
+    //String slice (borrowed)
+     let string: String = String::from("Hello, World");
+     let slice: &str = &string[0..5]; //Define a borrowed string slice, takes values from 0 to 4 index
+     println!("Slice value: {:?}", slice);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
