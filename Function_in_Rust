@@ -1,1 +1,37 @@
+extern crate rand;
+use rand::Rng;
+use std::io;
+use std::cmp::Ordering;
 
+
+fn main() {
+    println!("Guess a number!");
+
+    let secret_number = rand::thread_rng().gen_range(1, 101); //Generate a random number using Rng traits (thread_rng module)
+    println!("The random number is {}", secret_number);
+
+    //Allow user to make multiple guess
+    loop{
+        println!("Enter a guess.");
+
+        let mut guess = String::new(); //Create a variable which is an epmty string
+        io::stdin().read_line(&mut guess) //Allow user to unput and read the input value, return error message if it's an invalid value
+            .expect("Failed to read line!");
+        println!("Your guess is {}", guess);
+
+        //Check if user input correct number, if not keep asking
+        let guess:i32 = match guess.trim().parse() {
+            Ok(num) => num, //Arm's pattern 1
+            Err(_) => continue}; //Arm's pattern 2
+
+        //Compare 2 values, return enum value such Ordering::(Less/Equal/Greater), then use match to check with similar patern
+        match guess.cmp(&secret_number){
+            Ordering::Less => println!("Too small!"), //Arm's pattern 1
+            Ordering::Greater => println!("To big!"), //Arm's pattern 2
+            Ordering::Equal => {
+                println!("Correct!");
+                break;
+            } //Arm's pattern 3, break loop if guess is correct
+        }
+    }
+}
